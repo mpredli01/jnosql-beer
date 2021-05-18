@@ -27,35 +27,35 @@ public class Beer {
         type = BeerType.ALE;
         brewer_id = 0;
         abv = 10.0;
-        }
+    }
 
-    public Beer(int id, String name, BeerType type, int brewer_id, double abv) {
+    private Beer(int id, String name, BeerType type, int brewer_id, double abv) {
         this.id = id;
-        this .name = name;
+        this.name = name;
         this.type = type;
         this.brewer_id = brewer_id;
         this.abv = abv;
-        }
+    }
 
     public int getId() {
         return id;
-        }
+    }
 
     public String getName() {
         return name;
-        }
+    }
 
     public BeerType getType() {
         return type;
-        }
+    }
 
-    public int getBrewerId () {
+    public int getBrewerId() {
         return brewer_id;
-        }
+    }
 
     public double getAbv() {
         return abv;
-        }
+    }
 
 
     @Override
@@ -67,5 +67,49 @@ public class Beer {
                 ", brewer_id = '" + getBrewerId() + '\'' +
                 ", abv = '" + getAbv() + '\'' +
                 " }\n";
+    }
+
+    public static BeerBuilder builder() {
+        return new BeerBuilder();
+    }
+
+    public static class BeerBuilder {
+        private int id;
+        private String name;
+        private BeerType type;
+        private int brewer_id;
+        private double abv;
+
+        private BeerBuilder() {
+        }
+
+        public BeerBuilder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public BeerBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public BeerBuilder type(BeerType type) {
+            this.type = type;
+            return this;
+        }
+
+        public BeerBuilder brewer_id(int brewer_id) {
+            this.brewer_id = brewer_id;
+            return this;
+        }
+
+        public BeerBuilder abv(double abv) {
+            this.abv = abv;
+            return this;
+        }
+
+        public Beer build() {
+            return new Beer(id, name, type, brewer_id, abv);
         }
     }
+}

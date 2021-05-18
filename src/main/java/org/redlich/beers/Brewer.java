@@ -7,7 +7,7 @@ import jakarta.nosql.mapping.Id;
 @Entity
 public class Brewer {
     @Id
-    private String id;
+    private int id;
 
     @Column
     private String name;
@@ -19,18 +19,20 @@ public class Brewer {
     private String state;
 
     public Brewer() {
-        name = "{ brewer name }";
-        city = "{ brewer city }";
-        state = "{ brewer state }";
+        this.id = 0;
+        this.name = "{ brewer name }";
+        this.city = "{ brewer city }";
+        this.state = "{ brewer state }";
         }
 
-    public Brewer(String name, String city, String state) {
+    public Brewer(int id, String name, String city, String state) {
+        this.id = id;
         this.name = name;
         this.city = city;
         this.state = state;
         }
 
-    public String getId() {
+    public int getId() {
         return id;
         }
 

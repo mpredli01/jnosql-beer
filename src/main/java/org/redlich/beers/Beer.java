@@ -7,7 +7,7 @@ import jakarta.nosql.mapping.Id;
 @Entity
 public class Beer {
     @Id
-    private String id;
+    private int id;
 
     @Column
     private String name;
@@ -16,26 +16,28 @@ public class Beer {
     private BeerType type;
 
     @Column
-    private String brewer_id;
+    private int brewer_id;
 
     @Column
     private double abv;
 
     public Beer() {
+        id = 0;
         name = "{ beer name }";
         type = BeerType.ALE;
-        brewer_id = "{ brewer_id }";
+        brewer_id = 0;
         abv = 10.0;
         }
 
-    public Beer(String name, BeerType type, String brewer_id, double abv) {
+    public Beer(int id, String name, BeerType type, int brewer_id, double abv) {
+        this.id = id;
         this .name = name;
         this.type = type;
         this.brewer_id = brewer_id;
         this.abv = abv;
         }
 
-    public String getId() {
+    public int getId() {
         return id;
         }
 
@@ -47,7 +49,7 @@ public class Beer {
         return type;
         }
 
-    public String getBrewerId () {
+    public int getBrewerId () {
         return brewer_id;
         }
 

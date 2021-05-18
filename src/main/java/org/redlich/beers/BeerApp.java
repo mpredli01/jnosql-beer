@@ -25,7 +25,7 @@ public class BeerApp {
             BrewerRepository brewerRepository = service.getBrewerRepository();
 
             /// Brewer brewer = Brewer.builder().withId(3).withName("{}").withCity("{}").withState("{}").builder();
-            Brewer brewer = new Brewer(3, "River Horse", "Ewing", "New Jersey");
+            Brewer brewer = new BrewerBuilder().id(3).name("River Horse").city("Ewing").state("New Jersey").build();
             brewerRepository.save(brewer);
 
             System.out.println("----------\n");

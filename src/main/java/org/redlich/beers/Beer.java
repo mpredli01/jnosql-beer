@@ -57,20 +57,6 @@ public class Beer {
         return abv;
         }
 
-    public enum BeerType {
-        ALE,
-        STOUT,
-        PORTER,
-        IPA,
-        APA,
-        GOSE,
-        SAISON,
-        LAMBIC,
-        KOLSCH,
-        PILSNER,
-        MARZEN
-        }
-
 
     @Override
     public String toString() {

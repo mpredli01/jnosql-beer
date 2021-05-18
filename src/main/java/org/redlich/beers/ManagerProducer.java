@@ -38,7 +38,7 @@ public class ManagerProducer {
     @Database(provider = "brewerDb", value = DatabaseType.DOCUMENT)
     public DocumentCollectionManager getBrewerDoc() {
         return beerDoc;
-        }
+    }
 
     public void close(@Disposes @Any DocumentCollectionManager manager) {
         manager.close();

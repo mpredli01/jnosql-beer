@@ -25,7 +25,8 @@ public class BeerApp {
             BrewerRepository brewerRepository = service.getBrewerRepository();
 
             /// Brewer brewer = Brewer.builder().withId(3).withName("{}").withCity("{}").withState("{}").builder();
-            Brewer brewer = new Brewer(3, "River Horse", "Ewing", "New Jersey");
+            Brewer brewer = Brewer.builder().id(3).name("River Horse")
+                    .city("Ewing").state("New Jersey").build();
             brewerRepository.save(brewer);
 
             System.out.println("----------\n");
@@ -39,7 +40,10 @@ public class BeerApp {
             System.out.println("----------\n");
 
             System.out.println("Adding a new beer from the brewer using the brewer_id...");
-            Beer beer = new Beer(3,"Oatmeal Milk Stout", Beer.BeerType.STOUT, brewer_id,6.7);
+            Beer beer = Beer.builder().id(3)
+                    .name("Oatmeal Milk Stout").type(BeerType.STOUT)
+                    .brewer_id(brewer_id).abv(6.7)
+                    .build();
             beerRepository.save(beer);
             System.out.println("----------\n");
 

@@ -39,7 +39,7 @@ public class BeerApp {
             System.out.println("----------\n");
 
             System.out.println("Adding a new beer from the brewer using the brewer_id...");
-            Beer beer = new Beer(3,"Oatmeal Milk Stout", BeerType.STOUT, brewer_id,6.7);
+            Beer beer = new BeerBuilder().id(3).name("Oatmeal Milk Stout").type(BeerType.STOUT).brewer_id(brewer_id).abv(6.7).build();
             beerRepository.save(beer);
             System.out.println("----------\n");
 

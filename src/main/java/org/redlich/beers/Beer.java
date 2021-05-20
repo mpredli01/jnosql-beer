@@ -15,8 +15,8 @@ public class Beer {
     @Column
     private BeerType type;
 
-    @Column
-    private int brewer_id;
+    @Column("brewer_id")
+    private int brewerId;
 
     @Column
     private double abv;
@@ -25,15 +25,15 @@ public class Beer {
         id = 0;
         name = "{ beer name }";
         type = BeerType.ALE;
-        brewer_id = 0;
+        brewerId = 0;
         abv = 10.0;
     }
 
-    private Beer(int id, String name, BeerType type, int brewer_id, double abv) {
+    private Beer(int id, String name, BeerType type, int brewerId, double abv) {
         this.id = id;
         this.name = name;
         this.type = type;
-        this.brewer_id = brewer_id;
+        this.brewerId = brewerId;
         this.abv = abv;
     }
 
@@ -50,7 +50,7 @@ public class Beer {
     }
 
     public int getBrewerId() {
-        return brewer_id;
+        return brewerId;
     }
 
     public double getAbv() {

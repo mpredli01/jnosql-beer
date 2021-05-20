@@ -59,11 +59,12 @@ public class BeerApp {
             /// DocumentTemplate template = container.select(DocumentTemplate.class).get();
             /// template.insert(brewer);
             /// System.out.println(template.find(Beer.class, 1));
-            
+
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
             List<Brewer> brewers = brewerRepository.findByName("Southern Tier");
             System.out.println(brewers);
+            System.out.println("--------------------\n");
 
             System.out.println("Obtaining the brewerId...");
             int brewer_id = brewers.get(0).getId();
@@ -92,8 +93,8 @@ public class BeerApp {
             List<Beer> beers = beerRepository.findByBrewerId(brewer_id);
             System.out.println(beers);
             System.out.println("--------------------\n");
-            }
         }
+    }
 
     private BeerApp() {
         }

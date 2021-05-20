@@ -29,11 +29,11 @@ public class Beer {
         abv = 10.0;
         }
 
-    private Beer(int id, String name, BeerType type, int brewer_id, double abv) {
+    private Beer(int id, String name, BeerType type, int brewerId, double abv) {
         this.id = id;
         this.name = name;
         this.type = type;
-        this.brewerId = brewer_id;
+        this.brewerId = brewerId;
         this.abv = abv;
         }
 
@@ -68,6 +68,7 @@ public class Beer {
     public int getBrewerId() {
         return brewerId;
         }
+
 
     /**
      *

@@ -5,7 +5,8 @@ import jakarta.nosql.mapping.DatabaseType;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-/*
+
+/*/
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
  */

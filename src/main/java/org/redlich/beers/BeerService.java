@@ -34,4 +34,13 @@ public class BeerService {
                 .build();
         return template.select(query);
         }
+
+    public Stream<Beer> findByBrewerId(int brewer_id) {
+        DocumentQuery query = select()
+                .from("Beer")
+                .where("brewer_id")
+                .eq(brewer_id)
+                .build();
+        return template.select(query);
+        }
     }

@@ -49,6 +49,8 @@ public class BeerApp {
 
             System.out.println("Finding the newly inserted beer by name...");
             System.out.println(beerRepository.findByName("Oatmeal Milk Stout"));
+            System.out.println("Find by brewer id");
+            System.out.println(beerRepository.findByBrewerId(brewer_id));
             System.out.println("----------\n");
         }
     }

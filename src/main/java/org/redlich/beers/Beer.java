@@ -69,7 +69,6 @@ public class Beer {
         return brewerId;
         }
 
-
     /**
      *
      * @return

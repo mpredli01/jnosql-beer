@@ -1,17 +1,15 @@
 package org.redlich.beers;
 
-import jakarta.nosql.mapping.document.DocumentTemplate;
-
 import java.util.List;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-
 /*/
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
  */
 
+import jakarta.nosql.mapping.document.DocumentTemplate;
 import java.util.logging.Logger;
 
 public class BeerApp {
@@ -30,7 +28,7 @@ public class BeerApp {
             BeerService beerService = container.select(BeerService.class).get();
             BrewerService brewerService = container.select(BrewerService.class).get();
 
-            /*
+            /*/
             Brewer weyerbacher = Brewer.builder()
                     .id(8)
                     .name("Weyerbacher")
@@ -55,7 +53,8 @@ public class BeerApp {
                     .build();
             brewerService.insert(strange);
              */
-            /*/
+
+            /*/ this code block is under construction
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             template.insert(brewer);
             System.out.println(template.find(Beer.class, 1));
@@ -72,7 +71,7 @@ public class BeerApp {
             System.out.println("The brewerId = " + brewer_id);
             System.out.println("--------------------\n");
 
-            /*
+            /*/
             System.out.println("Adding a new beer from the brewer using the brewerId...");
             Beer full = Beer.builder()
                     .id(5)
@@ -95,18 +94,13 @@ public class BeerApp {
             System.out.println(beers);
             System.out.println("--------------------\n");
 
-            System.out.println("Deleting...");
+            /*/
+            System.out.println("Deleting by beer_id...");
             beerRepository.deleteById(5);
+             */
 
-
-
-            System.out.println("Finding the newly inserted beer by name...");
-            System.out.println(beerRepository.findByName("Oatmeal Milk Stout"));
-            System.out.println("Find by brewer id");
-            System.out.println(beerRepository.findByBrewerId(brewer_id));
-            System.out.println("----------\n");
+            }
         }
-    }
 
     private BeerApp() {
         }

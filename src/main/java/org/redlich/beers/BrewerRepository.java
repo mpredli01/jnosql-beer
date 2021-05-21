@@ -5,7 +5,7 @@ import java.util.List;
 import jakarta.nosql.mapping.Repository;
 
 import javax.enterprise.context.ApplicationScoped;
-// import jakarta.enterprise.context.ApplicationScoped;
+/// import jakarta.enterprise.context.ApplicationScoped;
 
 
 @ApplicationScoped

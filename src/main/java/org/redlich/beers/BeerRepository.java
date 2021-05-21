@@ -13,4 +13,5 @@ public interface BeerRepository extends Repository<Beer, String> {
 
     List<Beer> findByName(String beer);
     List<Beer> findByBrewerId(int brewer_id);
+    void deleteById(int id);
     }

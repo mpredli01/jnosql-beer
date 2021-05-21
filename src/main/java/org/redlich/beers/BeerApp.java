@@ -30,39 +30,40 @@ public class BeerApp {
             BeerService beerService = container.select(BeerService.class).get();
             BrewerService brewerService = container.select(BrewerService.class).get();
 
+            /*
+            Brewer weyerbacher = Brewer.builder()
+                    .id(8)
+                    .name("Weyerbacher")
+                    .city("Easton")
+                    .state("Pennsylvania")
+                    .build();
+            brewerService.insert(weyerbacher);
+
+            Brewer torn = Brewer.builder()
+                    .id(9)
+                    .name("Torn Label Brewing")
+                    .city("Kansas City")
+                    .state("Missouri")
+                    .build();
+            brewerRepository.save(torn);
+
+            Brewer strange = Brewer.builder()
+                    .id(10)
+                    .name("Strange Days Brewing")
+                    .city("Kansas City")
+                    .state("Missouri")
+                    .build();
+            brewerService.insert(strange);
+             */
             /*/
-            Brewer loneeagle = Brewer.builder()
-                    .id(5)
-                    .name("Lone Eagle Brewing")
-                    .city("Flemington")
-                    .state("New Jersey")
-                    .build();
-            brewerRepository.save(loneeagle);
-
-            Brewer duclaw = Brewer.builder()
-                    .id(6)
-                    .name("DuClaw")
-                    .city("Rosedale")
-                    .state("Maryland")
-                    .build();
-            brewerService.insert(duclaw);
-            */
-
-            Brewer brewer = Brewer.builder()
-                    .id(7)
-                    .name("Czig Meister")
-                    .city("Hackettstown")
-                    .state("New Jersey")
-                    .build();
-
-            /// System.out.println("TEMPLATE");
-            /// DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            /// template.insert(brewer);
-            /// System.out.println(template.find(Beer.class, 1));
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            template.insert(brewer);
+            System.out.println(template.find(Beer.class, 1));
+             */
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Southern Tier");
+            List<Brewer> brewers = brewerRepository.findByName("Strange Days Brewing");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -71,21 +72,21 @@ public class BeerApp {
             System.out.println("The brewerId = " + brewer_id);
             System.out.println("--------------------\n");
 
-            /*/
+            /*
             System.out.println("Adding a new beer from the brewer using the brewerId...");
-            Beer beer = Beer.builder()
-                    .id(4)
-                    .name("Warlock Imperial Stout")
-                    .type(BeerType.STOUT)
+            Beer full = Beer.builder()
+                    .id(5)
+                    .name("Full Slab")
+                    .type(BeerType.IPA)
                     .brewer_id(brewer_id)
                     .abv(8.6)
                     .build();
-            beerRepository.save(beer);
+            beerRepository.save(full);
             System.out.println("--------------------\n");
              */
 
             System.out.println("Finding a beer by name...");
-            List<Beer> beer = beerRepository.findByName("Warlock Imperial Stout");
+            List<Beer> beer = beerRepository.findByName("Full Slab");
             System.out.println(beer);
             System.out.println("--------------------\n");
 
@@ -93,6 +94,10 @@ public class BeerApp {
             List<Beer> beers = beerRepository.findByBrewerId(brewer_id);
             System.out.println(beers);
             System.out.println("--------------------\n");
+
+            System.out.println("Deleting...");
+            beerRepository.deleteById(5);
+
         }
     }
 

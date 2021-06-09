@@ -28,23 +28,24 @@ public class BeerApp {
             BeerService beerService = container.select(BeerService.class).get();
             BrewerService brewerService = container.select(BrewerService.class).get();
 
-            Brewer evil = Brewer.builder()
-                    .id(11)
-                    .name("Evil Genius Beer Company")
-                    .city("Philadelphia")
-                    .state("Pennsylvania")
-                    .build();
-            brewerRepository.save(evil);
-
             /*/
-            Brewer strange = Brewer.builder()
-                    .id(10)
-                    .name("Strange Days Brewing")
-                    .city("Kansas City")
+            TODO: get number of documents in the collection and increment by one for the id() method
+             */
+            Brewer busch = Brewer.builder()
+                    .id(12)
+                    .name("Anheuser-Busch")
+                    .city("St. Louis")
                     .state("Missouri")
                     .build();
-            brewerService.insert(strange);
-             */
+            brewerRepository.save(busch);
+
+            Brewer conclave = Brewer.builder()
+                    .id(13)
+                    .name("Conclave Brewing")
+                    .city("Flemington")
+                    .state("New Jersey")
+                    .build();
+            brewerService.insert(conclave);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -54,7 +55,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Evil Genius Beer Company");
+            List<Brewer> brewers = brewerRepository.findByName("Anheuser-Busch");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -63,19 +64,28 @@ public class BeerApp {
             System.out.println("The brewerId = " + brewer_id);
             System.out.println("--------------------\n");
 
-            System.out.println("Adding a new beer from the brewer using the brewerId...");
-            Beer purple = Beer.builder()
-                    .id(5)
-                    .name("Purple Monkey Dishwasher")
-                    .type(BeerType.PORTER)
+            System.out.println("Adding two new beers from the brewer using the brewerId...");
+            Beer budweiser = Beer.builder()
+                    .id(6)
+                    .name("Budweiser")
+                    .type(BeerType.LAGER)
                     .brewer_id(brewer_id)
-                    .abv(6.7)
+                    .abv(6.0)
                     .build();
-            beerRepository.save(purple);
+            beerRepository.save(budweiser);
+
+            Beer michelob = Beer.builder()
+                    .id(7)
+                    .name("Michelob Ultra")
+                    .type(BeerType.LAGER)
+                    .brewer_id(brewer_id)
+                    .abv(4.2)
+                    .build();
+            beerService.insert(michelob);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");
-            List<Beer> beer = beerRepository.findByName("Full Slab");
+            List<Beer> beer = beerRepository.findByName("Pumking");
             System.out.println(beer);
             System.out.println("--------------------\n");
 

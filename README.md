@@ -24,6 +24,10 @@ To run this project a MongoDB instance is required, so you can use either a loca
 
 Follow the instructions in the [installation guide](https://docs.mongodb.com/manual/installation/).
 
+## Clone this Repository
+
+`git clone https://github.com/mpredli01/jnosql-beers.git`
+
 ## Execute the application
 
 `mvn clean compile`

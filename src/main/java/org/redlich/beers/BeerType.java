@@ -6,6 +6,7 @@ public enum BeerType {
     PORTER,
     IPA,
     APA,
+    LAGER,
     GOSE,
     SAISON,
     LAMBIC,

@@ -1,20 +1,37 @@
 # jnosql-beers
 
-A Jakarta NoSQL and MongoDB application with Java SE using Document API with MongoDB as driver implementation.
+A Jakarta NoSQL and MongoDB application that accompanies the presentation, [Getting Started with Jakarta NoSQL and MongoDB](https://redlich.net/pdf/portfolio/getting-started-with-jakarta-nosql-and-mongodb.pdf) to demonstrate how to get started building a MongoDB database application with the Jakarta NoSQL specification.
+
+## Jakarta NoSQL
+
+One of the [specifications](https://jakarta.ee/specifications/) in the Jakarta EE ecosystem that supports all four types of NoSQL databases: column family, document, graph and key-value.
+
+## JNoSQL
+
+The compatible implementation of Jakarta NoSQL.
+
+## MongoDB
 
 ![MongoDB Project](http://www.jnosql.org/img/logos/mongodb.png)
+   
+#### Introduction
 
+MongoDB is a free and open-source cross-platform document-oriented database. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
-**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
+To run this project a MongoDB instance is required, so you can use either a local installation or Docker.
 
-To run this project a MongoDB instance is required, so you can use either a local installation or using Docker.
+#### Manual Installation of MongoDB
 
-## Manual installation
-
-Follow the instructions in: https://docs.mongodb.com/manual/installation/
+Follow the instructions in the [installation guide](https://docs.mongodb.com/manual/installation/).
 
 ## Execute the application
 
 `mvn clean compile`
 `mvn exec:java -Dexec.mainClass=org.redlich.beers.BeerApp`
 
+## Resources
+
+* Jakarta NoSQL [specification](https://jakarta.ee/specifications/nosql/)
+* JNoSQL [website](http://www.jnosql.org/)
+* `jnosql-beers` GitHub [repository](https://github.com/mpredli01/jnosql-beers)
+* Getting Started with Jakarta NoSQL and MongoDB [slide deck](https://redlich.net/pdf/portfolio/getting-started-with-jakarta-nosql-and-mongodb.pdf)

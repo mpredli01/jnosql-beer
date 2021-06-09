@@ -28,23 +28,15 @@ public class BeerApp {
             BeerService beerService = container.select(BeerService.class).get();
             BrewerService brewerService = container.select(BrewerService.class).get();
 
-            /*/
-            Brewer weyerbacher = Brewer.builder()
-                    .id(8)
-                    .name("Weyerbacher")
-                    .city("Easton")
+            Brewer evil = Brewer.builder()
+                    .id(11)
+                    .name("Evil Genius Beer Company")
+                    .city("Philadelphia")
                     .state("Pennsylvania")
                     .build();
-            brewerService.insert(weyerbacher);
+            brewerRepository.save(evil);
 
-            Brewer torn = Brewer.builder()
-                    .id(9)
-                    .name("Torn Label Brewing")
-                    .city("Kansas City")
-                    .state("Missouri")
-                    .build();
-            brewerRepository.save(torn);
-
+            /*/
             Brewer strange = Brewer.builder()
                     .id(10)
                     .name("Strange Days Brewing")
@@ -54,7 +46,7 @@ public class BeerApp {
             brewerService.insert(strange);
              */
 
-            /*/ this code block is under construction
+            /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             template.insert(brewer);
             System.out.println(template.find(Beer.class, 1));
@@ -62,7 +54,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Strange Days Brewing");
+            List<Brewer> brewers = brewerRepository.findByName("Evil Genius Beer Company");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -71,18 +63,16 @@ public class BeerApp {
             System.out.println("The brewerId = " + brewer_id);
             System.out.println("--------------------\n");
 
-            /*/
             System.out.println("Adding a new beer from the brewer using the brewerId...");
-            Beer full = Beer.builder()
+            Beer purple = Beer.builder()
                     .id(5)
-                    .name("Full Slab")
-                    .type(BeerType.IPA)
+                    .name("Purple Monkey Dishwasher")
+                    .type(BeerType.PORTER)
                     .brewer_id(brewer_id)
-                    .abv(8.6)
+                    .abv(6.7)
                     .build();
-            beerRepository.save(full);
+            beerRepository.save(purple);
             System.out.println("--------------------\n");
-             */
 
             System.out.println("Finding a beer by name...");
             List<Beer> beer = beerRepository.findByName("Full Slab");

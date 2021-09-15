@@ -39,21 +39,21 @@ public class BeerApp {
             System.out.println("There are " + noOfBrewers + " brewers in the database");
             System.out.println("--------------------\n");
 
-            Brewer sunken = Brewer.builder()
+            Brewer storm = Brewer.builder()
                     .id(noOfBrewers + 1)
-                    .name("Alchemist Brewery")
-                    .city("Stowe")
-                    .state("Vermont")
+                    .name("Newport Storm Brewing")
+                    .city("Newport")
+                    .state("Rhode Island")
                     .build();
-            brewerRepository.save(sunken);
+            brewerRepository.save(storm);
 
-            Brewer urban = Brewer.builder()
+            Brewer oddbird = Brewer.builder()
                     .id(noOfBrewers + 2)
-                    .name("NOLA Brewing")
-                    .city("New Orleans")
-                    .state("Louisiana")
+                    .name("Odd Bird Brewing")
+                    .city("Stockton")
+                    .state("New Jersey")
                     .build();
-            brewerService.insert(urban);
+            brewerService.insert(oddbird);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -63,7 +63,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("NOLA Brewing");
+            List<Brewer> brewers = brewerRepository.findByName("Odd Bird Brewing");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -73,23 +73,23 @@ public class BeerApp {
             System.out.println("--------------------\n");
 
             System.out.println("Adding two new beers from the brewer using the brewerId...");
-            Beer hopitoulas = Beer.builder()
+            Beer esb = Beer.builder()
                     .id(noOfBeers + 1)
-                    .name("Hopitoulas")
+                    .name("ESB (Extra Stockton Bitter)")
+                    .type(BeerType.ALE)
+                    .brewer_id(brewer_id)
+                    .abv(4.3)
+                    .build();
+            beerRepository.save(esb);
+
+            Beer extra = Beer.builder()
+                    .id(noOfBeers + 2)
+                    .name("Extraordinary Machine")
                     .type(BeerType.IPA)
                     .brewer_id(brewer_id)
-                    .abv(6.5)
+                    .abv(6.4)
                     .build();
-            beerRepository.save(hopitoulas);
-
-            Beer irish = Beer.builder()
-                    .id(noOfBeers + 2)
-                    .name("Irish Channel Stout")
-                    .type(BeerType.STOUT)
-                    .brewer_id(brewer_id)
-                    .abv(6.8)
-                    .build();
-            beerService.insert(irish);
+            beerService.insert(extra);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");

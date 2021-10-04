@@ -47,13 +47,13 @@ public class BeerApp {
                     .build();
             brewerRepository.save(storm);
 
-            Brewer oddbird = Brewer.builder()
+            Brewer sceamhill = Brewer.builder()
                     .id(noOfBrewers + 2)
-                    .name("Odd Bird Brewing")
-                    .city("Stockton")
+                    .name("Screamin' Hill Brewery")
+                    .city("Cream Ridge")
                     .state("New Jersey")
                     .build();
-            brewerService.insert(oddbird);
+            brewerService.insert(sceamhill);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -73,23 +73,23 @@ public class BeerApp {
             System.out.println("--------------------\n");
 
             System.out.println("Adding two new beers from the brewer using the brewerId...");
-            Beer esb = Beer.builder()
+            Beer pumpkin = Beer.builder()
                     .id(noOfBeers + 1)
-                    .name("ESB (Extra Stockton Bitter)")
+                    .name("Pumpkin Pickin' Ale")
                     .type(BeerType.ALE)
                     .brewer_id(brewer_id)
-                    .abv(4.3)
+                    .abv(7.0)
                     .build();
-            beerRepository.save(esb);
+            beerRepository.save(pumpkin);
 
-            Beer extra = Beer.builder()
+            Beer oktoberfest = Beer.builder()
                     .id(noOfBeers + 2)
-                    .name("Extraordinary Machine")
-                    .type(BeerType.IPA)
+                    .name("Oktoberfest")
+                    .type(BeerType.LAGER)
                     .brewer_id(brewer_id)
-                    .abv(6.4)
+                    .abv(6.0)
                     .build();
-            beerService.insert(extra);
+            beerService.insert(oktoberfest);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");

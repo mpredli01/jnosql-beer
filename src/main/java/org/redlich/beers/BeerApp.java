@@ -39,21 +39,21 @@ public class BeerApp {
             System.out.println("There are " + noOfBrewers + " brewers in the database");
             System.out.println("--------------------\n");
 
-            Brewer storm = Brewer.builder()
+            Brewer port = Brewer.builder()
                     .id(noOfBrewers + 1)
-                    .name("Newport Storm Brewing")
-                    .city("Newport")
-                    .state("Rhode Island")
+                    .name("Port Orleans")
+                    .city("New Orleans")
+                    .state("Louisiana")
                     .build();
-            brewerRepository.save(storm);
+            brewerRepository.save(port);
 
-            Brewer sceamhill = Brewer.builder()
+            Brewer screamhill = Brewer.builder()
                     .id(noOfBrewers + 2)
                     .name("Screamin' Hill Brewery")
                     .city("Cream Ridge")
                     .state("New Jersey")
                     .build();
-            brewerService.insert(sceamhill);
+            brewerService.insert(screamhill);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -63,7 +63,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Odd Bird Brewing");
+            List<Brewer> brewers = brewerRepository.findByName("Screamin' Hill Brewery");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 

@@ -1,6 +1,8 @@
 package org.redlich.beers;
 
 import java.util.List;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -10,7 +12,6 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
  */
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
-import java.util.logging.Logger;
 
 public class BeerApp {
 
@@ -45,7 +46,7 @@ public class BeerApp {
                     .city("New Orleans")
                     .state("Louisiana")
                     .build();
-            brewerRepository.save(port);
+            // brewerRepository.save(port);
 
             Brewer screamhill = Brewer.builder()
                     .id(noOfBrewers + 2)
@@ -53,7 +54,7 @@ public class BeerApp {
                     .city("Cream Ridge")
                     .state("New Jersey")
                     .build();
-            brewerService.insert(screamhill);
+            // brewerService.insert(screamhill);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -80,7 +81,7 @@ public class BeerApp {
                     .brewer_id(brewer_id)
                     .abv(7.0)
                     .build();
-            beerRepository.save(pumpkin);
+            // beerRepository.save(pumpkin);
 
             Beer oktoberfest = Beer.builder()
                     .id(noOfBeers + 2)
@@ -89,7 +90,7 @@ public class BeerApp {
                     .brewer_id(brewer_id)
                     .abv(6.0)
                     .build();
-            beerService.insert(oktoberfest);
+            // beerService.insert(oktoberfest);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");
@@ -102,6 +103,11 @@ public class BeerApp {
             System.out.println(beers);
             System.out.println("--------------------\n");
 
+            System.out.println("Finding brewers by city and state...");
+            Stream<Brewer> brewerStream = brewerService.findByCityAndState("New Orleans", "Louisiana");
+            brewerStream.forEach(brewer -> System.out.println(brewer));
+            System.out.println("--------------------\n");
+            
             /*/
             System.out.println("Deleting by beer_id...");
             beerRepository.deleteById(9);

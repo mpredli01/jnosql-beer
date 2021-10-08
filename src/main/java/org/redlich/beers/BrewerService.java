@@ -34,4 +34,15 @@ public class BrewerService {
                 .build();
         return template.select(query);
         }
+
+    public Stream<Brewer> findByCityAndState(String city, String state) {
+        DocumentQuery query = select()
+                .from("Brewer")
+                .where("city")
+                .eq(city)
+                .and("state")
+                .eq(state)
+                .build();
+        return template.select(query);
+        }
     }

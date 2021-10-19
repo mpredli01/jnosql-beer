@@ -43,4 +43,13 @@ public class BeerService {
                 .build();
         return template.select(query);
         }
+
+    public Stream<Beer> findByAbv(double abv) {
+        DocumentQuery query = select()
+                .from("Beer")
+                .where("abv")
+                .gt(abv)
+                .build();
+        return template.select(query);
+        }
     }

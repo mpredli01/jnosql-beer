@@ -40,21 +40,21 @@ public class BeerApp {
             System.out.println("There are " + noOfBrewers + " brewers in the database");
             System.out.println("--------------------\n");
 
-            Brewer port = Brewer.builder()
+            Brewer second = Brewer.builder()
                     .id(noOfBrewers + 1)
-                    .name("Port Orleans")
+                    .name("Second Line Brewing")
                     .city("New Orleans")
                     .state("Louisiana")
                     .build();
-            // brewerRepository.save(port);
+            brewerRepository.save(second);
 
-            Brewer screamhill = Brewer.builder()
+            Brewer lakefront = Brewer.builder()
                     .id(noOfBrewers + 2)
-                    .name("Screamin' Hill Brewery")
-                    .city("Cream Ridge")
-                    .state("New Jersey")
+                    .name("Lakefront Brewery")
+                    .city("Milwaukee")
+                    .state("Wisconsin")
                     .build();
-            // brewerService.insert(screamhill);
+            brewerService.insert(lakefront);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -64,7 +64,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Screamin' Hill Brewery");
+            List<Brewer> brewers = brewerRepository.findByName("Lakefront Brewery");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -76,21 +76,21 @@ public class BeerApp {
             System.out.println("Adding two new beers from the brewer using the brewerId...");
             Beer pumpkin = Beer.builder()
                     .id(noOfBeers + 1)
-                    .name("Pumpkin Pickin' Ale")
+                    .name("Brandy Barrel-Aged Pumpkin Imperial Ale")
                     .type(BeerType.ALE)
                     .brewer_id(brewer_id)
-                    .abv(7.0)
+                    .abv(13.4)
                     .build();
-            // beerRepository.save(pumpkin);
+            beerRepository.save(pumpkin);
 
-            Beer oktoberfest = Beer.builder()
+            Beer newgrist = Beer.builder()
                     .id(noOfBeers + 2)
-                    .name("Oktoberfest")
-                    .type(BeerType.LAGER)
+                    .name("New Grist Gose with Lime")
+                    .type(BeerType.GOSE)
                     .brewer_id(brewer_id)
-                    .abv(6.0)
+                    .abv(5.1)
                     .build();
-            // beerService.insert(oktoberfest);
+            beerService.insert(newgrist);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");
@@ -108,6 +108,11 @@ public class BeerApp {
             brewerStream.forEach(brewer -> System.out.println(brewer));
             System.out.println("--------------------\n");
             
+            System.out.println("Finding beer by ABV greater than 8.0...");
+            Stream<Beer> beerStream = beerService.findByAbv(8.0);
+            beerStream.forEach(beered -> System.out.println(beered));
+            System.out.println("--------------------\n");
+
             /*/
             System.out.println("Deleting by beer_id...");
             beerRepository.deleteById(9);

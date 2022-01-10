@@ -4,12 +4,11 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
-/*/
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
- */
+
+// import org.jboss.weld.environment.se.WeldContainer;
+// import org.jboss.weld.environment.se.Weld;
 
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
@@ -21,6 +20,7 @@ public class BeerApp {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
+            /* WeldContainer container = new Weld().initialize() */
             Service service = container.select(Service.class).get();
 
             BeerRepository beerRepository = service.getBeerRepository();
@@ -29,10 +29,10 @@ public class BeerApp {
             BeerService beerService = container.select(BeerService.class).get();
             BrewerService brewerService = container.select(BrewerService.class).get();
 
-            List<Beer> beerList = beerRepository.findAll();
+            Stream<Beer> beerList = beerRepository.findAll();
             List<Brewer> brewerList = brewerRepository.findAll();
 
-            int noOfBeers = beerList.size();
+            long noOfBeers = beerList.count();
             int noOfBrewers = brewerList.size();
 
             System.out.println("--------------------\n");
@@ -46,7 +46,7 @@ public class BeerApp {
                     .city("New Orleans")
                     .state("Louisiana")
                     .build();
-            brewerRepository.save(second);
+            // brewerRepository.save(second);
 
             Brewer lakefront = Brewer.builder()
                     .id(noOfBrewers + 2)
@@ -54,13 +54,13 @@ public class BeerApp {
                     .city("Milwaukee")
                     .state("Wisconsin")
                     .build();
-            brewerService.insert(lakefront);
+            // brewerService.insert(lakefront);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             template.insert(brewer);
             System.out.println(template.find(Beer.class, 1));
-             */
+            /*/
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
@@ -75,31 +75,31 @@ public class BeerApp {
 
             System.out.println("Adding two new beers from the brewer using the brewerId...");
             Beer pumpkin = Beer.builder()
-                    .id(noOfBeers + 1)
+                    .id((int)noOfBeers + 1)
                     .name("Brandy Barrel-Aged Pumpkin Imperial Ale")
                     .type(BeerType.ALE)
                     .brewer_id(brewer_id)
                     .abv(13.4)
                     .build();
-            beerRepository.save(pumpkin);
+            // beerRepository.save(pumpkin);
 
             Beer newgrist = Beer.builder()
-                    .id(noOfBeers + 2)
+                    .id((int)noOfBeers + 2)
                     .name("New Grist Gose with Lime")
                     .type(BeerType.GOSE)
                     .brewer_id(brewer_id)
                     .abv(5.1)
                     .build();
-            beerService.insert(newgrist);
+            // beerService.insert(newgrist);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");
-            List<Beer> beer = beerRepository.findByName("Pumking");
+            Stream<Beer> beer = beerRepository.findByName("Pumking");
             System.out.println(beer);
             System.out.println("--------------------\n");
 
             System.out.println("Finding varieties of beer by brewerId...");
-            List<Beer> beers = beerRepository.findByBrewerId(brewer_id);
+            Stream<Beer> beers = beerRepository.findByBrewerId(brewer_id);
             System.out.println(beers);
             System.out.println("--------------------\n");
 
@@ -117,7 +117,6 @@ public class BeerApp {
             System.out.println("Deleting by beer_id...");
             beerRepository.deleteById(9);
             /*/
-
             }
         }
 

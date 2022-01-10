@@ -14,36 +14,58 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.redlich</groupId>
     <artifactId>beers</artifactId>
-    <version>0.0.1</version>
-    <packaging>jar</packaging>
-    <name>Jakarta NoSQL MongoDB Example</name>
+    <version>0.5.0</version>
+    <packaging>war</packaging>
+    <name>Example Application using Jakarta NoSQL and MongoDB</name>
 
     <!-- <parent>
         <groupId>org.eclipse.jnosql</groupId>
         <artifactId>jnosql-parent</artifactId>
-        <version>1.0.0-b2</version>
+        <version>1.0.0-b3</version>
     </parent> -->
 
     <properties>
-        <maven.compile.targetLevel>1.8</maven.compile.targetLevel>
-        <maven.compile.sourceLevel>1.8</maven.compile.sourceLevel>
-        <maven.compile.version>3.5.1</maven.compile.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compile.version>3.8.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <json.b.version>1.0</json.b.version>
-        <javax.json.version>1.1</javax.json.version>
-        <tinkerpop.version>3.3.0</tinkerpop.version>
+        <jakartaee.version>8.0.0</jakartaee.version>
+        <jakarta.nosql.version>1.0.0-b3</jakarta.nosql.version>
+        <microprofile.config.version>3.0.1</microprofile.config.version>
+        <jboss.weld.se.version>4.0.2.Final</jboss.weld.se.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <openliberty.maven.version>3.3.4</openliberty.maven.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <final.name>jnosql-beers</final.name>
     </properties>
+    
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <layout>default</layout>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>9.0.0</version>
+            <version>${jakartaee.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>${jakartaee.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.enterprise</groupId>
@@ -54,77 +76,113 @@
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.nosql</groupId>
+            <artifactId>spec</artifactId>
+            <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.nosql.communication</groupId>
             <artifactId>communication-core</artifactId>
-            <version>${project.version}</version>
+            <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.nosql.mapping</groupId>
             <artifactId>mapping-core</artifactId>
-            <version>${project.version}</version>
+            <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.nosql.mapping</groupId>
             <artifactId>mapping-document</artifactId>
-            <version>${project.version}</version>
-        </dependency> -->
+            <version>${jakarta.nosql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se</artifactId>
+            <version>2.4.8.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-api</artifactId>
+            <version>2.4.SP2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${jboss.weld.se.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-shaded</artifactId>
-            <version>3.1.4.Final</version>
+            <version>${jboss.weld.se.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.json</groupId>
-            <artifactId>javax.json-api</artifactId>
-            <version>${javax.json.version}</version>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>2.0.1</version>
         </dependency>
         <dependency>
-            <groupId>javax.json.bind</groupId>
-            <artifactId>javax.json.bind-api</artifactId>
-            <version>${json.b.version}</version>
+            <groupId>jakarta.json.bind</groupId>
+            <artifactId>jakarta.json.bind-api</artifactId>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
-            <version>${json.b.version}</version>
+            <version>2.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>${javax.json.version}</version>
+            <artifactId>jakarta.json</artifactId>
+            <version>2.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile.config</groupId>
             <artifactId>microprofile-config-api</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <dependency> <!-- new -->
-            <groupId>org.eclipse.jnosql</groupId>
-            <artifactId>jnosql-parent</artifactId>
-            <version>1.0.0-b2</version>
-            <type>pom</type>
+            <version>${microprofile.config.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.jnosql</groupId>
+            <artifactId>jnosql-parent</artifactId>
+            <version>1.0.0-b3</version>
+            <type>pom</type>
+        </dependency>
+        <!-- <dependency>
             <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>artemis-document</artifactId>
-            <!-- <version>${project.version}</version> -->
-            <version>1.0.0-b2</version>
+            <version>${project.version}</version>
+            <version>1.0.0-b3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-core</artifactId>
+            <version>1.0.0-b3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
+            <artifactId>mapping-document</artifactId>
+            <version>1.0.0-b3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.communication</groupId>
+            <artifactId>communication-document</artifactId>
+            <version>1.0.0-b3</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>mongodb-driver</artifactId>
-            <version>1.0.0-b2</version>
-        </dependency>
+            <version>1.0.0-b3</version>
+        </dependency> -->
         <dependency>
             <groupId>io.smallrye.config</groupId>
             <artifactId>smallrye-config</artifactId>
-            <version>1.7.0</version>
+            <version>2.8.1</version>
         </dependency>
     </dependencies>
     <build>
+        <finalName>jnosql-beers</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -166,7 +224,7 @@
             <plugins>
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
                 <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
+                    <groupId>org.eclipse.m2e-only</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
                     <version>1.0.0</version>
                     <configuration>
@@ -188,7 +246,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore></ignore>
+                                        <ignore>false</ignore>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>

@@ -1,18 +1,17 @@
 package org.redlich.beers;
 
-import java.util.List;
-
+import java.util.stream.Stream;
 import jakarta.nosql.mapping.Repository;
-
-import javax.enterprise.context.ApplicationScoped;
-/// import jakarta.enterprise.context.ApplicationScoped;
-
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.nosql.mapping.Page;
+import jakarta.nosql.mapping.Pagination;
 
 @ApplicationScoped
 public interface BeerRepository extends Repository<Beer, String> {
 
-    List<Beer> findAll();
-    List<Beer> findByName(String beer);
-    List<Beer> findByBrewerId(int brewer_id);
+    Stream<Beer> findAll();
+    Page<Beer> findAll(Pagination pagination);
+    Stream<Beer> findByName(String beer);
+    Stream<Beer> findByBrewerId(int brewer_id);
     void deleteById(int id);
     }

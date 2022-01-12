@@ -20,7 +20,6 @@ public class ManagerProducer {
 
     @ApplicationScoped
     @Produces
-    @Database(provider = "beerManager", value = DatabaseType.DOCUMENT)
     public DocumentCollectionManager getManager() {
         return manager;
         }

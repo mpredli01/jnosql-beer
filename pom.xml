@@ -51,7 +51,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.nosql.mapping</groupId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>mapping-document</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>

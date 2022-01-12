@@ -57,33 +57,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>${jakartaee.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-web-api</artifactId>
-            <version>${jakartaee.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>3.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.inject</groupId>
-            <artifactId>jakarta.inject-api</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.nosql</groupId>
-            <artifactId>spec</artifactId>
-            <version>${jakarta.nosql.version}</version>
-        </dependency>
-        <dependency>
             <groupId>jakarta.nosql.communication</groupId>
             <artifactId>communication-core</artifactId>
             <version>${jakarta.nosql.version}</version>
@@ -100,81 +73,14 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se</artifactId>
-            <version>2.4.8.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.weld</groupId>
-            <artifactId>weld-api</artifactId>
-            <version>2.4.SP2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-core</artifactId>
             <version>${jboss.weld.se.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se-shaded</artifactId>
-            <version>${jboss.weld.se.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.json</groupId>
-            <artifactId>jakarta.json-api</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.json.bind</groupId>
-            <artifactId>jakarta.json.bind-api</artifactId>
-            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
             <version>2.0.3</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.json</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.microprofile.config</groupId>
-            <artifactId>microprofile-config-api</artifactId>
-            <version>${microprofile.config.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql</groupId>
-            <artifactId>jnosql-parent</artifactId>
-            <version>1.0.0-b3</version>
-            <type>pom</type>
-        </dependency>
-        <!-- <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
-            <artifactId>artemis-document</artifactId>
-            <version>${project.version}</version>
-            <version>1.0.0-b3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mapping-core</artifactId>
-            <version>1.0.0-b3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mapping-document</artifactId>
-            <version>1.0.0-b3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>communication-document</artifactId>
-            <version>1.0.0-b3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.diana</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>1.0.0-b3</version>
-        </dependency> -->
         <dependency>
             <groupId>io.smallrye.config</groupId>
             <artifactId>smallrye-config</artifactId>

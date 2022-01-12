@@ -51,18 +51,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.nosql.communication</groupId>
-            <artifactId>communication-core</artifactId>
-            <version>${jakarta.nosql.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.nosql.mapping</groupId>
-            <artifactId>mapping-core</artifactId>
-            <version>${jakarta.nosql.version}</version>
-        </dependency>
-        <dependency>
             <groupId>jakarta.nosql.mapping</groupId>
             <artifactId>mapping-document</artifactId>
+            <version>${jakarta.nosql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.communication</groupId>
+            <artifactId>mongodb-driver</artifactId>
             <version>${jakarta.nosql.version}</version>
         </dependency>
         <dependency>

@@ -14,7 +14,6 @@ public class BeerApp {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            /* WeldContainer container = new Weld().initialize() */
             Service service = container.select(Service.class).get();
 
             BeerRepository beerRepository = service.getBeerRepository();
@@ -40,7 +39,7 @@ public class BeerApp {
                     .city("New Orleans")
                     .state("Louisiana")
                     .build();
-            // brewerRepository.save(second);
+             brewerRepository.save(second);
 
             Brewer lakefront = Brewer.builder()
                     .id(noOfBrewers + 2)
@@ -48,7 +47,7 @@ public class BeerApp {
                     .city("Milwaukee")
                     .state("Wisconsin")
                     .build();
-            // brewerService.insert(lakefront);
+            brewerService.insert(lakefront);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -84,7 +83,7 @@ public class BeerApp {
                     .brewer_id(brewer_id)
                     .abv(5.1)
                     .build();
-            // beerService.insert(newgrist);
+            beerService.insert(newgrist);
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");

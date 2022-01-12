@@ -41,7 +41,7 @@ public class BeerService {
 
     public Stream<Beer> findByAbv(double abv) {
         DocumentQuery query = select()
-                .from("Beer")
+                .from(Beer.class.getSimpleName())
                 .where("abv")
                 .gt(abv)
                 .build();

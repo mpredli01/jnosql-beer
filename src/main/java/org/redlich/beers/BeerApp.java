@@ -35,17 +35,17 @@ public class BeerApp {
 
             Brewer second = Brewer.builder()
                     .id(noOfBrewers + 1)
-                    .name("Second Line Brewing")
-                    .city("New Orleans")
-                    .state("Louisiana")
+                    .name("Highrail Brewing")
+                    .city("High Bridge")
+                    .state("New Jersey")
                     .build();
             brewerRepository.save(second);
 
             Brewer lakefront = Brewer.builder()
                     .id(noOfBrewers + 2)
-                    .name("Lakefront Brewery")
-                    .city("Milwaukee")
-                    .state("Wisconsin")
+                    .name("The Alchemist Brewing")
+                    .city("Stowe")
+                    .state("Vermont")
                     .build();
             brewerService.insert(lakefront);
 
@@ -57,7 +57,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Lakefront Brewery");
+            List<Brewer> brewers = brewerRepository.findByName("The Alchemist Brewing");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -69,19 +69,19 @@ public class BeerApp {
             System.out.println("Adding two new beers from the brewer using the brewerId...");
             Beer pumpkin = Beer.builder()
                     .id((int) noOfBeers + 1)
-                    .name("Brandy Barrel-Aged Pumpkin Imperial Ale")
-                    .type(BeerType.ALE)
+                    .name("Heady Topper")
+                    .type(BeerType.IPA)
                     .brewer_id(brewer_id)
-                    .abv(13.4)
+                    .abv(8.0)
                     .build();
             beerRepository.save(pumpkin);
 
             Beer newgrist = Beer.builder()
                     .id((int) noOfBeers + 2)
-                    .name("New Grist Gose with Lime")
-                    .type(BeerType.GOSE)
+                    .name("Focal Banger")
+                    .type(BeerType.IPA)
                     .brewer_id(brewer_id)
-                    .abv(5.1)
+                    .abv(7.0)
                     .build();
             beerService.insert(newgrist);
             System.out.println("--------------------\n");

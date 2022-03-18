@@ -24,7 +24,6 @@ public class ManagerProducer {
         return manager;
         }
 
-
     public void close(@Disposes @Any DocumentCollectionManager manager) {
         manager.close();
         }

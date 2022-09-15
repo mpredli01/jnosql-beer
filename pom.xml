@@ -28,7 +28,7 @@
         <maven.compile.version>3.8.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakartaee.version>8.0.0</jakartaee.version>
-        <jakarta.nosql.version>1.0.0-b3</jakarta.nosql.version>
+        <jakarta.nosql.version>1.0.0-b4</jakarta.nosql.version>
         <microprofile.config.version>3.0.1</microprofile.config.version>
         <smallrye.config.version>2.8.1</smallrye.config.version>
         <yasson.version>2.0.3</yasson.version>

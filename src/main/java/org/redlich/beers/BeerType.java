@@ -12,5 +12,6 @@ public enum BeerType {
     LAMBIC,
     KOLSCH,
     PILSNER,
-    MARZEN
+    MARZEN,
+    ESB
     }

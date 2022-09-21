@@ -33,21 +33,21 @@ public class BeerApp {
             System.out.println("There are " + noOfBrewers + " brewers in the database");
             System.out.println("--------------------\n");
 
-            Brewer second = Brewer.builder()
+            Brewer readington = Brewer.builder()
                     .id(noOfBrewers + 1)
-                    .name("Highrail")
-                    .city("High Bridge")
+                    .name("Readington Brewery")
+                    .city("Readington")
                     .state("New Jersey")
                     .build();
-            // brewerRepository.save(second);
+            brewerRepository.save(readington);
 
-            Brewer lakefront = Brewer.builder()
+            Brewer boulevard = Brewer.builder()
                     .id(noOfBrewers + 2)
-                    .name("Alchemist Brewing")
-                    .city("Stowe")
-                    .state("Vermont")
+                    .name("Boulevard Brewing")
+                    .city("Kansas City")
+                    .state("Missouri")
                     .build();
-            // brewerService.insert(lakefront);
+            brewerService.insert(boulevard);
 
             /*/ this code block is under construction and does not work as is
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
@@ -57,7 +57,7 @@ public class BeerApp {
 
             System.out.println("--------------------\n");
             System.out.println("Finding a brewer by name...");
-            List<Brewer> brewers = brewerRepository.findByName("Highrail");
+            List<Brewer> brewers = brewerRepository.findByName("Boulevard Brewing");
             System.out.println(brewers);
             System.out.println("--------------------\n");
 
@@ -66,34 +66,36 @@ public class BeerApp {
             System.out.println("The brewerId = " + brewer_id);
             System.out.println("--------------------\n");
 
-            System.out.println("Adding two new beers from the brewer using the brewerId...");
+            System.out.println("Adding two new beers from the brewer using the brewerId (" + brewer_id + ")...");
             Beer heady = Beer.builder()
                     .id((int) noOfBeers + 1)
-                    .name("Heady Topper")
-                    .type(BeerType.IPA)
+                    .name("Tank 7")
+                    .type(BeerType.ALE)
                     .brewer_id(brewer_id)
-                    .abv(8.0)
+                    .abv(8.5)
                     .build();
             beerRepository.save(heady);
 
             Beer focal = Beer.builder()
                     .id((int) noOfBeers + 2)
-                    .name("Focal Banger")
+                    .name("The Calling IPA")
                     .type(BeerType.IPA)
                     .brewer_id(brewer_id)
                     .abv(7.0)
                     .build();
             beerService.insert(focal);
+
             System.out.println("--------------------\n");
 
             System.out.println("Finding a beer by name...");
-            Stream<Beer> beer = beerRepository.findByName("Pumking");
-            System.out.println(beer);
+            Stream<Beer> beerStream1 = beerRepository.findByName("Pumking");
+            beerStream1.forEach(beer -> System.out.println("Here is the beer I found: " + beer.getName()));
             System.out.println("--------------------\n");
 
-            System.out.println("Finding varieties of beer by brewerId...");
-            Stream<Beer> beers = beerRepository.findByBrewerId(brewer_id);
-            System.out.println(beers);
+            System.out.println("Finding varieties of beer by brewerId (" + brewer_id + ") " + brewers.get(0).getName() + "...");
+            Stream<Beer> byBrewerId = beerRepository.findByBrewerId(brewer_id);
+            // System.out.println(beers);
+            byBrewerId.forEach(beerByBrewer -> System.out.println("Here are the beers I found: " + beerByBrewer));
             System.out.println("--------------------\n");
 
             System.out.println("Finding brewers by city and state...");
@@ -106,14 +108,28 @@ public class BeerApp {
             beerStream.forEach(beered -> System.out.println(beered));
             System.out.println("--------------------\n");
 
-            // System.out.println("Deleting beer by beer_id...");
-            // beerRepository.deleteById(21);
+            /*/ work in progress for updating a beer or a brewer
+            System.out.println("The brewerId still remains as: " + brewer_id);
+            brewerRepository.update(alchemist);
+            /*/
 
-            // System.out.println("Deleting brewer by brewer_id");
-            // brewerRepository.deleteById(28);
+            /*/ uncomment this section to delete a beer from the database
+            System.out.println("Deleting beer by beer_id...");
+            beerRepository.deleteById(21);
+            /*/
+
+            /*/ uncomment this section to delete a brewer from the database
+            System.out.println("Deleting brewer by brewer_id");
+            brewerRepository.deleteById(28);
+            /*/
+            }
+        catch(IndexOutOfBoundsException exception) {
+            System.out.println("EXCEPTION:");
+            System.out.println("The cause was: " + exception.getCause());
+            System.out.println("The message is: " + exception.getMessage());
+            }
         }
-    }
 
     private BeerApp() {
+        }
     }
-}

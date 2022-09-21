@@ -14,4 +14,6 @@ public interface BrewerRepository extends Repository<Brewer, String> {
     List<Brewer> findByName(String brewer);
 
     void deleteById(int id);
-}
+
+    void update(Brewer brewer);
+    }

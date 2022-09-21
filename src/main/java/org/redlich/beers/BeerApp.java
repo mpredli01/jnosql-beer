@@ -81,7 +81,7 @@ public class BeerApp {
                     .name("The Calling IPA")
                     .type(BeerType.IPA)
                     .brewer_id(brewer_id)
-                    .abv(7.0)
+                    .abv(8.5)
                     .build();
             beerService.insert(focal);
 
@@ -94,7 +94,6 @@ public class BeerApp {
 
             System.out.println("Finding varieties of beer by brewerId (" + brewer_id + ") " + brewers.get(0).getName() + "...");
             Stream<Beer> byBrewerId = beerRepository.findByBrewerId(brewer_id);
-            // System.out.println(beers);
             byBrewerId.forEach(beerByBrewer -> System.out.println("Here are the beers I found: " + beerByBrewer));
             System.out.println("--------------------\n");
 

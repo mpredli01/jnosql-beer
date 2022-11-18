@@ -1,4 +1,5 @@
-# Getting Started with Jakarta NoSQL and MongoDB
+#  Craft Beer Database Application
+## Getting Started with Jakarta NoSQL and MongoDB
 
 The [Jakarta NoSQL](https://jakarta.ee/specifications/nosql/) specification defines a set of APIs to provide a standard implementation for most NoSQL databases. Jakarta NoSQL is considered "one API for many NoSQL databases" as it supports the four types of NoSQL databases: column family, document, graph and key-value.
 

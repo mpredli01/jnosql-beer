@@ -4,8 +4,13 @@ import jakarta.nosql.document.DocumentQuery;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+/*/
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+/*/
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
 import java.util.stream.Stream;
 
 import static jakarta.nosql.document.DocumentQuery.select;

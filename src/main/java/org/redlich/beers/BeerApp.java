@@ -6,8 +6,13 @@
 
 package org.redlich.beers;
 
+/*/
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+/*/
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import java.util.List;
 import java.util.stream.Stream;
 

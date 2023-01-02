@@ -26,9 +26,16 @@
 
 ### BeerRepository.java
 
-* Change import `jakarta.nosql.mapping.Repository` to `jakarta.data.repository.Repository`
+* Remove generics, `<Beer,String>`, from `...extends Repository`
+* Change import `jakarta.nosql.mapping.Repository;` to `jakarta.data.repository.Repository;`
+* Change import `jakarta.data.repository.Page;` to `jakarta.data.repository.Page;`
+* Change import `jakarta.data.repository.Pageable;` to `jakarta.data.repository.Pageable;`
 
 ### BrewerRepository.java
 
-* Change import `jakarta.nosql.mapping.Repository` to `jakarta.data.repository.Repository`
-* 
+* Remove generics, `<Brewer,String>`, from `...extends Repository`
+* Change import `jakarta.nosql.mapping.Repository;` to `jakarta.data.repository.Repository;`
+
+### beans.xml
+
+* Update to Jakarta EE

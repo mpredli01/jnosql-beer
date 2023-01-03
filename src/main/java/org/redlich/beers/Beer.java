@@ -1,3 +1,13 @@
+/*
+ * Craft Beer Database Application
+ * This demo application is featured in the `Getting Started with Jakarta NoSQL and MongoDB presentation`
+ *
+ * @author Otávio Santana
+ * @author Michael P. Redlich
+ *
+ * @version 1.0.5
+ */
+
 package org.redlich.beers;
 
 import jakarta.nosql.mapping.Column;
@@ -63,7 +73,7 @@ public class Beer {
 
     /**
      *
-     * @return the brewerId from the Brewer entity.
+     * @return the value of `brewerId` from the Brewer entity.
      */
     public int getBrewerId() {
         return brewerId;
@@ -71,7 +81,7 @@ public class Beer {
 
     /**
      *
-     * @return
+     * @return the value of `abv`.
      */
     public double getAbv() {
         return abv;

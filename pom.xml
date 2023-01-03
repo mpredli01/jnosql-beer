@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2017 Otávio Santana and others
+  ~ Copyright (c) 2023 Otávio Santana and others
   ~ All rights reserved. This program and the accompanying materials
   ~ are made available under the terms of the Eclipse Public License v1.0
   ~ and Apache License v2.0 which accompanies this distribution.
@@ -18,7 +18,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.redlich</groupId>
     <artifactId>beers</artifactId>
-    <version>0.5.0</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
     <name>Example Application using Jakarta NoSQL and MongoDB</name>
 
@@ -50,11 +50,11 @@
     </repositories>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>jakarta.data</groupId>-->
-<!--            <artifactId>jakarta-data-api</artifactId>-->
-<!--            <version>1.0.0-b1</version>-->
-<!--        </dependency>-->
+<!--        <dependency> -->
+<!--            <groupId>jakarta.data</groupId> -->
+<!--            <artifactId>jakarta-data-api</artifactId> -->
+<!--            <version>1.0.0-b1</version> -->
+<!--        </dependency> -->
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-document</artifactId>
@@ -80,6 +80,11 @@
             <artifactId>smallrye-config</artifactId>
             <version>${smallrye.config.version}</version>
         </dependency>
+<!--        <dependency> -->
+<!--            <groupId>ch.qos.logback</groupId> -->
+<!--            <artifactId>logback-classic</artifactId> -->
+<!--            <version>1.4.5</version> -->
+<!--        </dependency> -->
     </dependencies>
     <build>
         <finalName>jnosql-beers</finalName>

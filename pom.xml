@@ -33,8 +33,11 @@
         <yasson.version>1.0.11</yasson.version>
         <jboss.weld.se.version>3.1.9.Final</jboss.weld.se.version>
         <openliberty.maven.version>3.3.4</openliberty.maven.version>
+        <exec.mojo.version>3.1.0</exec.mojo.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+        <exec.cleanupDaemonThreads>false</exec.cleanupDaemonThreads>
         <final.name>jnosql-beers</final.name>
+        <mainClass>org.redlich.beers.BeerApp</mainClass>
     </properties>
     
     <repositories>
@@ -50,11 +53,6 @@
     </repositories>
 
     <dependencies>
-<!--        <dependency> -->
-<!--            <groupId>jakarta.data</groupId> -->
-<!--            <artifactId>jakarta-data-api</artifactId> -->
-<!--            <version>1.0.0-b1</version> -->
-<!--        </dependency> -->
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-document</artifactId>
@@ -80,11 +78,6 @@
             <artifactId>smallrye-config</artifactId>
             <version>${smallrye.config.version}</version>
         </dependency>
-<!--        <dependency> -->
-<!--            <groupId>ch.qos.logback</groupId> -->
-<!--            <artifactId>logback-classic</artifactId> -->
-<!--            <version>1.4.5</version> -->
-<!--        </dependency> -->
     </dependencies>
     <build>
         <finalName>jnosql-beers</finalName>
@@ -110,6 +103,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec.mojo.version}</version>
+                <configuration>
+                    <mainClass>${mainClass}</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

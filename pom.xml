@@ -29,7 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakarta.nosql.version>1.0.0-b5</jakarta.nosql.version>
         <microprofile.config.version>3.0.2</microprofile.config.version>
-        <smallrye.config.version>2.12.1</smallrye.config.version>
+        <smallrye.config.version>2.13.3</smallrye.config.version>
         <yasson.version>1.0.11</yasson.version>
         <jboss.weld.se.version>3.1.9.Final</jboss.weld.se.version>
         <openliberty.maven.version>3.3.4</openliberty.maven.version>
